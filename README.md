@@ -1,13 +1,13 @@
 # Longest Increasing Subsequence (LIS)
-Problem: Given a sequence of ${n}$ positive integers, $X = {x}_{1}, {x}_{2}, ..., {x}_{n}$, find the longest increasing subsequence of $X$. The program should read input from a "incseq.txt" file, one per line.
+Problem: Given a sequence of ${n}$ positive integers, $X = x_1, x_2, ..., x_n$, find the longest increasing subsequence of $X$. The program should read input from a "incseq.txt" file, one per line.
 
 ## Example
->Input: $X = {6, 3, 10, 12, 8, 7, 14, 9, 5}<br>
+>Input: $X$ = {6, 3, 10, 12, 8, 7, 14, 9, 5}<br>
 >Output: LIS Length = 4, LIS = {3, 10, 12, 14}<br>
 
 ## Approach
 This is a dynamic programming approach, where the sub-problem is to compute $L[j]$, the length of the longest increasing subsequence that ends with index $j$. This requires some ${x}_{j}$ to be greater than all elements in a previously identified longest increasing subsequence.<br>
-We will compute the length of the longest increasing subsequence for each progressively longer prefix of $x[ ]$. $L[j]$ will store the length of the longest increasing subsequence ending with $x[j]$. The base case is that a single integer prefix of $x[ ]$ will have a LIS length of 1. For each $x[i]$ we consider every $x[j], (j<i)$ that is a predecessor of $x[i], (x[j] < x[i])$ and set the $L[i]$ equal to the max of any such $L[j]+1$. We then determine the max value of $L[ ]$ to be the length of the longest increasing subsequence.
+We will compute the length of the longest increasing subsequence for each progressively longer prefix of $x[ ]$. $L[j]$ will store the length of the longest increasing subsequence ending with $x[j]$. The base case is that a single integer prefix of $x[ ]$ will have a LIS length of 1. For each $x[i]$ we consider every $x[j]$, $(j < i)$ that is a predecessor of $x[i]$, $(x[j] < x[i])$ and set the $L[i]$ equal to the max of any such $L[j]+1$. We then determine the max value of $L$ to be the length of the longest increasing subsequence.
 |    i|1|2|3|4|5|6|7|8|9|
 |----:|-|-|-|-|-|-|-|-|-|
 |Input|6|3|10|12|8|7|14|9|5|
